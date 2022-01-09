@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'debug_toolbar',
+    'crispy_forms',
+    'store',
 ]
 
 MIDDLEWARE = [
@@ -121,16 +123,21 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR / 'static'
+MEDIA_ROOT = STATIC_ROOT / 'media'
+MEDIA_URL = '/media/'
 
 INTERNAL_IPS = [
     '127.0.0.1',
 ]
 
 # Log all SQL
-# LOGGING = {
-#     "version": 1,
-#     "handlers": {"console": {"class": "logging.StreamHandler"}},
-#     "loggers": {"django.db.backends": {"level": "DEBUG"}},
-#     "root": {"handlers": ["console"]},
-# }
+LOGGING = {
+    "version": 1,
+    "handlers": {"console": {"class": "logging.StreamHandler"}},
+    "loggers": {"django.db.backends": {"level": "DEBUG"}},
+    "root": {"handlers": ["console"]},
+}
 
+# Crispy
+CRISPY_TEMPLATE_PACK = "bootstrap3"
